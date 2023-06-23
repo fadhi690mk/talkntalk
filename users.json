@@ -1,0 +1,17 @@
+{
+    "users": [
+      {
+        "username": "John",
+        "mobileNumber": "1234567890"
+      },
+      {
+        "username": "Jane",
+        "mobileNumber": "9876543210"
+      },
+      {
+        "username": "Alice",
+        "mobileNumber": "5555555555"
+      }
+    ]
+  }
+  

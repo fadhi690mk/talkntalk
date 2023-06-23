@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/png" href="./icons/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talk'n'tALK</title>
+
+    <style>
+      body {
+        background: url('./icons/bg.jpg') no-repeat fixed center center;
+        background-size: contain;
+      }
+      /* CSS for the header */
+      header {
+        background-color: #f2f2f200;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+    
+      .logo {
+        margin-right: 20px;
+      }
+    
+      nav {
+        flex-grow: 1;
+        text-align: right;
+      }
+    
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: flex-end;
+      }
+    
+      nav ul li {
+        margin-left: 10px;
+      }
+    
+      nav ul li a {
+        color: #333;
+        text-decoration: none;
+        padding: 5px 10px;
+      }
+    
+      #userButton {
+        background-color: #333;
+        color: #fff;
+        padding: 5px 10px;
+        text-decoration: none;
+        border-radius: 3px;
+      }
+
+      .module{
+        background-color: #3333331b;
+        margin: auto 5% 1vh 5%;
+        width: 90%;
+        padding:5%;
+        border-radius: 15px;
+        height: 2vh;
+        overflow: hidden;
+        transform: .5s;
+      }
+      .module:hover{
+        height: max-content;
+      }
+
+      .module-title{
+        color: #536DFE;
+        padding: 0;
+        margin: 0;
+        
+      }
+      .topics{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+
+      }
+      .topic{
+        background-color: #dbdbdb3f;
+        margin-top: 5vh;
+        backdrop-filter: blur(5px);
+        border-radius: 10px;
+        box-shadow: #3333332c 5px 5px ;
+        transition: 0.3s;
+      }
+      .topic:hover{
+        scale: 0.9;
+        box-shadow: #3333332c -5px -5px;
+      }
+      .topic-title{
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 5px;
+      }
+      
+
+
+      /* Media query for mobile responsiveness */
+      @media screen and (max-width: 600px) {
+        header {
+          flex-direction: column;
+          
+        }
+
+        .logo {
+          margin-right: 0;
+          margin-bottom: 10px;
+          display: flex;
+          justify-content: center;
+
+        }
+        .logo img{
+          height: 60px;
+        }
+    
+        nav {
+          text-align: left;
+        }
+    
+        nav ul {
+          justify-content: center;
+        }
+    
+        nav ul li {
+          margin-left: 0;
+          margin-bottom: 5px;
+        }
+    
+        
+      }
+    </style>
+</head>
+<body>
+    <header>
+      <div class="logo">
+        <img src="./icons/banner.png" alt="Logo" height="30px">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhVJREFUSEvN1UnITnEUBvDfx8JMdoREiChThg1JmVI2hqIUiTInZcGGYiE2xpQSxUKxUJJZSCFiY0ghsjKkKGTu6Lxfb2/3vq/NW99Z3e7//M9zz3Oe89wWTY6WJtfXJgDGYgEmYwh+4Rbu4AIe1GOhXgf9cBgz8DkLPcE3jMZI9MBubMH3IqAygPjSa+iADTiOPwUF1ibAC8zDo9qcIoBeuJdUTMXzBkIYgTNoh+H4Up1fBHAO4zEOL9EH3fC0DlCA3McRrKwHMAk3sCyTh2U37zCghKZKvc3Ygem4VHlZ28E+LEVP/MAm7MzkGPbFOl10SjEEXXPLAB7iNeZkwiocyOcAPtpgHnE/YlQZwBvEDFZkQu+cw0eEbH82ADiEReheBvAsh7WwqlBIcS8OYk2DOQSd69GxDOB88j+h5ktP5jYHvwHYOekK1ZxCdBgReWMwuAxgew62L95WgbTHHqzGJ/55WEg3YlfeiT14j9NYXgYwMBdrG7YW8D0t6RqaZ78xM2UZ3J9Ia2lVW9GihRLC0MLkyiJoiEG+ShH0x12EV02pvlQL0CX5jH3Y2EAxleMofjkBY/tD5q1RCzAbZ7EY0X5s5W0cw9cawJjTEqxLZYVvNTS7/TnISq24MCit+HrSEa4aXjUxk27m9heaYm0H4SGReBVX8AFdMR+zEPING3mcnhUSDe5Lo038Mv9z1sVpTe/gL9I6cRkc/rZLAAAAAElFTkSuQmCC"/>
+          </a></li>
+          <li><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhZJREFUSEvF1UvIT1sYBvDfhyLCRGfkVigkOSeShAFSSnLJ3cQEZ6DIpchAiVxCRgYMJLdco5SYSUkk5XY60emUCSMycu/R+tdu9999X+rrW/Xvv/e73vU+z/s8a63doZtHRzfX12MAo7AFMzCBRiI/8Az3cAz/1hVp18EGHEcf/I8HeNUg5V+YhGH4gr9xsppbB5hcCr7AIrzuokfp8gaGYwqetNbVAa5iPsbivy4UX4s9+IB1eITrWNIEkKJhH5Dq6IW5GI9veIm7JXa7SDmiAAzByCaAjziLjZXq0fciptVAY+wpvMMfOI0oMA8DmgC+4zC2l4Qwv18YbcUd9C7MD5ZdMxPZTRkhsrTk/ArUPUjifuwsC5aVRfm/VOtgOS5gYTE40+eReIg1AoTZjjKf520YiE81gGj9Hnuxu8xF3lVV4u06yIHZXBYcKHINRvypjhbAPuwqE2ewpjOAo+UUZ0222+Wi65UaQJiGcVWivK/ozINqBy2TswUjVUzOCZ+DQ/gHs2omB7BfkwfROSzWV9gOLWZOb7NNV+JtJZ5tOhuRtK3Juazya3fQwmwBPuMWblaYt+o9xiCMaQII+8UY18WrotrURDzFOaxuAvgTYZHEGPymJkvTa4pfQ7yaWmq0lSjB1nUdgx8WSRL/iufoi9HF7MT7I7dw5jfhRJVF0xftdz44R9pd7z32yeyi9J2ndXsHPwHCfnMZO3GOhQAAAABJRU5ErkJggg=="/>
+          </a></li>
+          <li><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAgZJREFUSEvF1UnIjlEUB/DfZyrDwgYrFmRYiYUhbAxJhmRj2JiSDBuKWImFBTIssFHERtjYSCKxUoYMWbBQFJGSKSFER/ep+92e733ezdt3Vs9zz7n3f87//M+9XTpsXR0+X68BTMMqLEV/XMNljMYPPMEjfG9ioK6CZbiEvg2bf+IQ9ifQ2vASYA6uo09TZpn/NRbjcd2eEuA01tUEBi038RSjEIkMz+JeYjI+lXtLgPcYVgRdxAZ8zdb7YTOOZlReSZV0214CvMOILCL+R+I3DmMiHuAAPiaAbVn8VNzLEUqAs1idBYRyoulD04GV6xlWYC22Z/G7cLAVQFBxKguIhs9P/4uwEzMRFNVZyHlBK4CtOJ4F/MIs3M3WBqUmb8SSAuVbqjYo/W8lRXuwrya1GziPq3ib+Y8UFIUrehhiqQUIZZwsAKKp0dyY6LCH2JFkG9V8KYZyYD54ZQXj8DwDOIc1WI4L2Xp8r8RgfC4A5ibw2gpiMfS8MB12BzPSd/RiE97gWKJqC04UFYeKQk09AkxKTa0oOZN4jkwrG5AUtbdGUTEju1sBhC+GJ6a0sg+4jRcYi3kYUmRe/c7GrSaA8McARTZVJT2c1235FcbgTzsAEROjH1d3XHBNFhfd9EIkbb1o8S4ELRMwPjX3L9ZjCiLrkG40/n6ZRa89mU10tO3veAX/ABGMXxnQ24RMAAAAAElFTkSuQmCC"/>
+          </a></li>
+          <li><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAUFJREFUSEvd1T8ohWEUx/HPTTIYTAYpJQMGu8VmVAorZVMmZWCRTJQyKZti9WeRyWYxMzAJKYPJYJD86eh5dd3udf91l3uWp97zPud7fr/zPs+b0+DINbi+5gKMYx0Dddp2jUWcRp18ix7RXWfxbPst+goBXyk7iJsaQaE+FPzWzleQAV4xg6MqIRPYQ3s5QFZ3E0v4KANqSbML3/Pjp/liCmaxgzacYxLPJSCdOMQI3jCH3XIKAjqEE/TgCSH/ogAynGzswgPGcIXM6pIKMlUdOMAo3rGA7QSZxxZacYYpvKRcxYDMwlWspM37aZ1Oa+TW8rqOx1UBMldCRagJVRHRbXQd3RdGTYAo0otjfKaZ3JUYfM2ASo9FEwPu03dfqRX/vRfziZn9OclxXW+gv07CJZaLXdd11i2+vbl+mQ2x6BtqhEIZ+AjT5wAAAABJRU5ErkJggg=="/>
+          </a></li>
+          <li><a id="userButton" href="#"></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div id="modulesContainer"></div>
+
+<script>
+  // Assuming you have the JSON file loaded and stored in a variable named "jsonData"
+
+  // Access the container element
+  const container = document.getElementById("modulesContainer");
+  
+  fetch('class.json')
+  .then(response => response.json())
+  .then(data => {
+    const modules = data.modules;
+    console.log(modules);
+    modules.forEach(module => {
+      // Create the module container
+      const moduleContainer = document.createElement("div");
+      moduleContainer.classList.add("module");
+  
+      // Create the module title
+      const moduleTitle = document.createElement("h3");
+      moduleTitle.classList.add("module-title");
+      moduleTitle.textContent = module["module-title"];
+  
+      // Create the topics container
+      const topicsContainer = document.createElement("div");
+      topicsContainer.classList.add("topics");
+  
+      // Iterate over each topic in the module
+      module.topics.forEach(topic => {
+        // Create the topic container
+        const topicContainer = document.createElement("div");
+        topicContainer.classList.add("topic");
+        topicContainer.onclick = youtube;
+  
+        // Create the topic image
+        const topicImage = document.createElement("img");
+        topicImage.src = topic["topic-img"];
+        topicImage.width = "150";
+        topicImage.alt = "";
+  
+        // Create the topic title
+        const topicTitle = document.createElement("p");
+        topicTitle.classList.add("topic-title");
+        topicTitle.textContent = topic["topic-title"];
+
+        
+        function youtube(e){
+          e.preventDefault();
+          window.location.href=`index4.html?mobile=${mobileNumber}&module=${encodeURIComponent(module["index"])}&topic=${encodeURIComponent(topic["index"])}`;
+        }
+  
+        // Append the topic image and title to the topic container
+        topicContainer.appendChild(topicImage);
+        topicContainer.appendChild(topicTitle);
+  
+        // Append the topic container to the topics container
+        topicsContainer.appendChild(topicContainer);
+      });
+  
+      // Append the module title and topics container to the module container
+      moduleContainer.appendChild(moduleTitle);
+      moduleContainer.appendChild(topicsContainer);
+  
+      // Append the module container to the main container
+      container.appendChild(moduleContainer);
+    });
+    
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+
+    
+  
+  // Iterate over each module in the JSON data
+  
+</script>
+
+
+
+
+    <script>
+        // Get the mobile number parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const mobileNumber = urlParams.get('mobile');
+
+        fetch('users.json')
+            .then(response => response.json())
+            .then(data => {
+                // Search for the user with the specified mobile number
+                const user = data.users.find(user => user.mobileNumber === mobileNumber);
+
+                if (user) {
+                    // Display the username
+                    const username = user.username;
+                    const userButton = document.getElementById('userButton');
+                    userButton.textContent = username;
+                } else {
+                    // Handle the case when the user is not found
+                    const errorMessage = document.createElement('p');
+                    errorMessage.textContent = 'User not found.';
+                    document.body.appendChild(errorMessage);
+                }
+            })
+            .catch(error => {
+                // Handle any errors that occur during the fetch request
+                console.error('Error:', error);
+            });
+
+            const logo = document.querySelector('.logo');
+            logo.addEventListener('click', () => {
+              window.history.back();
+            });     
+    </script>
+</body>
+</html>

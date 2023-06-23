@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/png" href="./icons/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talk'n'tALK</title>
+
+    <style>
+      body {
+        background: url('./icons/bg.jpg') no-repeat fixed center center;
+        background-size: contain;
+      }
+      /* CSS for the header */
+      header {
+        background-color: #f2f2f200;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+    
+      .logo {
+        margin-right: 20px;
+      }
+    
+      nav {
+        flex-grow: 1;
+        text-align: right;
+      }
+    
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: flex-end;
+      }
+    
+      nav ul li {
+        margin-left: 10px;
+      }
+    
+      nav ul li a {
+        color: #333;
+        text-decoration: none;
+        padding: 5px 10px;
+      }
+    
+      .signup-button {
+        background-color: #333;
+        color: #fff;
+        padding: 5px 10px;
+        text-decoration: none;
+        border-radius: 3px;
+      }
+    
+      .login-box {
+        background-color: #f2f2f200;
+        padding: 20px;
+        width: 300px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center center;
+        height: 80vh;
+      }
+      .login-box form{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .login-box label {
+        display: block;
+        margin-bottom: 10px;
+      }
+    
+      .login-box input[type="text"] {
+        width: 90%;
+        padding: 5px;
+        margin-bottom: 10px;
+        background-color: #33333320;
+        border: none;
+        border-radius: 3px;
+
+      }
+    
+      .login-box input[type="submit"] {
+        background-color: #333333;
+        color: #fff;
+        padding: 5px 10px;
+        text-decoration: none;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        width: 30%;
+      }
+    
+      /* Media query for mobile responsiveness */
+      @media screen and (max-width: 600px) {
+        header {
+          flex-direction: column;
+          
+        }
+
+        .logo {
+          margin-right: 0;
+          margin-bottom: 10px;
+          display: flex;
+          justify-content: center;
+
+        }
+        .logo img{
+          height: 60px;
+        }
+    
+        nav {
+          text-align: left;
+        }
+    
+        nav ul {
+          justify-content: center;
+        }
+    
+        nav ul li {
+          margin-left: 0;
+          margin-bottom: 5px;
+        }
+    
+        .login-box {
+          width: 90%;
+        }
+      }
+    </style>
+</head>
+<body>
+    <header>
+      <div class="logo">
+        <img src="./icons/banner.png" alt="Logo" height="30px">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhVJREFUSEvN1UnITnEUBvDfx8JMdoREiChThg1JmVI2hqIUiTInZcGGYiE2xpQSxUKxUJJZSCFiY0ghsjKkKGTu6Lxfb2/3vq/NW99Z3e7//M9zz3Oe89wWTY6WJtfXJgDGYgEmYwh+4Rbu4AIe1GOhXgf9cBgz8DkLPcE3jMZI9MBubMH3IqAygPjSa+iADTiOPwUF1ibAC8zDo9qcIoBeuJdUTMXzBkIYgTNoh+H4Up1fBHAO4zEOL9EH3fC0DlCA3McRrKwHMAk3sCyTh2U37zCghKZKvc3Ygem4VHlZ28E+LEVP/MAm7MzkGPbFOl10SjEEXXPLAB7iNeZkwiocyOcAPtpgHnE/YlQZwBvEDFZkQu+cw0eEbH82ADiEReheBvAsh7WwqlBIcS8OYk2DOQSd69GxDOB88j+h5ktP5jYHvwHYOekK1ZxCdBgReWMwuAxgew62L95WgbTHHqzGJ/55WEg3YlfeiT14j9NYXgYwMBdrG7YW8D0t6RqaZ78xM2UZ3J9Ia2lVW9GihRLC0MLkyiJoiEG+ShH0x12EV02pvlQL0CX5jH3Y2EAxleMofjkBY/tD5q1RCzAbZ7EY0X5s5W0cw9cawJjTEqxLZYVvNTS7/TnISq24MCit+HrSEa4aXjUxk27m9heaYm0H4SGReBVX8AFdMR+zEPING3mcnhUSDe5Lo038Mv9z1sVpTe/gL9I6cRkc/rZLAAAAAElFTkSuQmCC"/>
+          </a></li>
+          <li><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhZJREFUSEvF1UvIT1sYBvDfhyLCRGfkVigkOSeShAFSSnLJ3cQEZ6DIpchAiVxCRgYMJLdco5SYSUkk5XY60emUCSMycu/R+tdu9999X+rrW/Xvv/e73vU+z/s8a63doZtHRzfX12MAo7AFMzCBRiI/8Az3cAz/1hVp18EGHEcf/I8HeNUg5V+YhGH4gr9xsppbB5hcCr7AIrzuokfp8gaGYwqetNbVAa5iPsbivy4UX4s9+IB1eITrWNIEkKJhH5Dq6IW5GI9veIm7JXa7SDmiAAzByCaAjziLjZXq0fciptVAY+wpvMMfOI0oMA8DmgC+4zC2l4Qwv18YbcUd9C7MD5ZdMxPZTRkhsrTk/ArUPUjifuwsC5aVRfm/VOtgOS5gYTE40+eReIg1AoTZjjKf520YiE81gGj9Hnuxu8xF3lVV4u06yIHZXBYcKHINRvypjhbAPuwqE2ewpjOAo+UUZ0222+Wi65UaQJiGcVWivK/ozINqBy2TswUjVUzOCZ+DQ/gHs2omB7BfkwfROSzWV9gOLWZOb7NNV+JtJZ5tOhuRtK3Juazya3fQwmwBPuMWblaYt+o9xiCMaQII+8UY18WrotrURDzFOaxuAvgTYZHEGPymJkvTa4pfQ7yaWmq0lSjB1nUdgx8WSRL/iufoi9HF7MT7I7dw5jfhRJVF0xftdz44R9pd7z32yeyi9J2ndXsHPwHCfnMZO3GOhQAAAABJRU5ErkJggg=="/>
+          </a></li>
+          <li><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAgZJREFUSEvF1UnIjlEUB/DfZyrDwgYrFmRYiYUhbAxJhmRj2JiSDBuKWImFBTIssFHERtjYSCKxUoYMWbBQFJGSKSFER/ep+92e733ezdt3Vs9zz7n3f87//M+9XTpsXR0+X68BTMMqLEV/XMNljMYPPMEjfG9ioK6CZbiEvg2bf+IQ9ifQ2vASYA6uo09TZpn/NRbjcd2eEuA01tUEBi038RSjEIkMz+JeYjI+lXtLgPcYVgRdxAZ8zdb7YTOOZlReSZV0214CvMOILCL+R+I3DmMiHuAAPiaAbVn8VNzLEUqAs1idBYRyoulD04GV6xlWYC22Z/G7cLAVQFBxKguIhs9P/4uwEzMRFNVZyHlBK4CtOJ4F/MIs3M3WBqUmb8SSAuVbqjYo/W8lRXuwrya1GziPq3ib+Y8UFIUrehhiqQUIZZwsAKKp0dyY6LCH2JFkG9V8KYZyYD54ZQXj8DwDOIc1WI4L2Xp8r8RgfC4A5ibw2gpiMfS8MB12BzPSd/RiE97gWKJqC04UFYeKQk09AkxKTa0oOZN4jkwrG5AUtbdGUTEju1sBhC+GJ6a0sg+4jRcYi3kYUmRe/c7GrSaA8McARTZVJT2c1235FcbgTzsAEROjH1d3XHBNFhfd9EIkbb1o8S4ELRMwPjX3L9ZjCiLrkG40/n6ZRa89mU10tO3veAX/ABGMXxnQ24RMAAAAAElFTkSuQmCC"/>
+          </a></li>
+          <li><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAUFJREFUSEvd1T8ohWEUx/HPTTIYTAYpJQMGu8VmVAorZVMmZWCRTJQyKZti9WeRyWYxMzAJKYPJYJD86eh5dd3udf91l3uWp97zPud7fr/zPs+b0+DINbi+5gKMYx0Dddp2jUWcRp18ix7RXWfxbPst+goBXyk7iJsaQaE+FPzWzleQAV4xg6MqIRPYQ3s5QFZ3E0v4KANqSbML3/Pjp/liCmaxgzacYxLPJSCdOMQI3jCH3XIKAjqEE/TgCSH/ogAynGzswgPGcIXM6pIKMlUdOMAo3rGA7QSZxxZacYYpvKRcxYDMwlWspM37aZ1Oa+TW8rqOx1UBMldCRagJVRHRbXQd3RdGTYAo0otjfKaZ3JUYfM2ASo9FEwPu03dfqRX/vRfziZn9OclxXW+gv07CJZaLXdd11i2+vbl+mQ2x6BtqhEIZ+AjT5wAAAABJRU5ErkJggg=="/>
+          </a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="login-box">
+      <form onsubmit="checkMobileNumber(event)">
+        <input type="text" id="mobile-number" name="mobile-number" placeholder="Enter your mobile number" required>
+        <input type="submit" value="Login" >
+      </form>
+    </div>
+
+    <script>
+      function checkMobileNumber(event) {
+        event.preventDefault(); // Prevent the form from submitting
+      
+        const mobileNumber = document.getElementById('mobile-number').value;
+      
+        fetch('users.json')
+          .then(response => response.json())
+          .then(data => {
+            const users = data.users;
+      
+            const user = users.find(user => user.mobileNumber === mobileNumber);
+            if (user) {
+              window.location.href = `index2.html?mobile=${encodeURIComponent(user.mobileNumber)}`;
+            } else {
+              alert('Invalid mobile number');
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+      }
+      
+    </script>
+</body>
+</html>
